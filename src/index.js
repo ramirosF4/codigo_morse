@@ -4,12 +4,42 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import './css/main.css';
 import Swal from 'sweetalert2';
 const codigoMorse = {
-    A: '.-', B: '-...', C: '-.-.', D: '-..', E: '.',
-    F: '..-.', G: '--.', H: '....', I: '..', J: '.---',
-    K: '-.-', L: '.-..', M: '--', N: '-.', O: '---',
-    P: '.--.', Q: '--.-', R: '.-.', S: '...', T: '-',
-    U: '..-', V: '...-', W: '.--', X: '-..-',
-    Y: '-.--', Z: '--..'
+    A: '._',
+    B: '_...',
+    C: '_._.',
+    D: '_..',
+    E: '._',
+    F: '.._.',
+    G: '__.',
+    H: '....',
+    I: '..',
+    J: '.___',
+    K: '_._',
+    L: '._..',
+    M: '__',
+    N: '_.',
+    O: '___',
+    P: '.__.',
+    Q: '__._',
+    R: '._.',
+    S: '...',
+    T: '_',
+    U: '.._',
+    V: '..._',
+    W: '.__',
+    X: '_.._',
+    Y: '_.__',
+    Z: '__..',
+    0: '_____',
+    1: '.____',
+    2: '..___',
+    3: '...__',
+    4: '...._',
+    5: '.....',
+    6: '_....',
+    7: '__...',
+    8: '___..',
+    9: '____.'
 };
 const entrada = document.getElementById('entrada');
 const resultado = document.getElementById('resultado');
@@ -46,7 +76,7 @@ morseATexto.addEventListener('click', () => {
 entrada.addEventListener('input', () => {
     let texto = entrada.value;
     let caracteresPermitidos = '';
-    caracteresPermitidos = tipoConversion === 'texto' ? /^[a-zA-Z ]*$/ : /^[.\- /]*$/;
+    caracteresPermitidos = tipoConversion === 'texto'? /^[a-zA-Z0-9 ]*$/ : /^[._ /]*$/;
     !caracteresPermitidos.test(texto) ? (entrada.value = texto.slice(0, -1), mensaje.textContent = 'Ingresaste un carácter no permitido.') : mensaje.textContent = '';
 });
 const convertirATextoMorse = (texto) => {
